@@ -1,10 +1,14 @@
-def calculate
+class HumanWeight
+  VALUE = 110
+  def calculate
     puts "Enter Your Name"
     name = gets.chomp
     puts "Enter Your Height"
     height = gets.chomp.to_i
-    weight = height - 110
-    puts height < 110 ? "Your Weight Is Already Optimal": "Your Ideal Weight Is: #{weight}"
+    weight = height - VALUE
+  return height < VALUE ? "Your Weight Is Already Optimal": "Your Ideal Weight Is: #{weight}"
+  end
 end
 
-calculate
+obj1 = HumanWeight.new.calculate
+puts obj1
