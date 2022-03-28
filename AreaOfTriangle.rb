@@ -1,6 +1,7 @@
 class Triangle
+  VALUE = 0.5
   def calculate base, height
-    0.5*base*height
+    VALUE*base*height
   end
 end
 
