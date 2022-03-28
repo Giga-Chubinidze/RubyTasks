@@ -6,7 +6,7 @@ class Equation
     @b = b
     @c = c
     @d = b**2 - 4*a*c
-    
+
     #square roots for a and b respectively
     @x1 = Math.sqrt a 
     @x2 = Math.sqrt b
@@ -35,3 +35,4 @@ c = gets.chomp.to_f
 
 obj1 = Equation.new(a, b, c)
 puts obj1.calculate
+
