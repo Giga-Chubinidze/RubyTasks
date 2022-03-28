@@ -37,6 +37,12 @@ class Triangle
   end
 end
 
-# an example of a triangle with 3 equal sides!
-obj1 = Triangle.new(9, 9, 9)
+puts "Input first side"
+a = gets.chomp.to_f
+puts "Input second side"
+b = gets.chomp.to_f
+puts "Input third side"
+c = gets.chomp.to_f
+
+obj1 = Triangle.new(a, b, c)
 puts obj1.calculate
