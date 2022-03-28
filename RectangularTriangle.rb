@@ -37,11 +37,11 @@ class Triangle
   end
 end
 
-puts "Input first side"
+puts 'Input first side'
 a = gets.chomp.to_f
-puts "Input second side"
+puts 'Input second side'
 b = gets.chomp.to_f
-puts "Input third side"
+puts 'Input third side'
 c = gets.chomp.to_f
 
 obj1 = Triangle.new(a, b, c)
