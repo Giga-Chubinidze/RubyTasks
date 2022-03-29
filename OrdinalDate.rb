@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ordinalize
   @@days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 

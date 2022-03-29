@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HumanWeight
   VALUE = 110
   def calculate

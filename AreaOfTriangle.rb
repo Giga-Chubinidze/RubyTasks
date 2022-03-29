@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Triangle
   VALUE = 0.5
   def calculate(base, height)

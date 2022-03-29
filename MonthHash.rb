@@ -1,10 +1,8 @@
+# frozen_string_literal: true
+
 require 'date'
 
 class MonthHash
-  def days_in_month(month)
-    (Date.new(2022, 12, 31) << (12 - month)).day
-  end
-
   def calculate
     month_arr = Date::MONTHNAMES
     valid_months = []
