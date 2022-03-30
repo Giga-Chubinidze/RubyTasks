@@ -26,5 +26,4 @@ class ShoppingCart
   end
 end
 
-object1 = ShoppingCart.new
-object1.calculate
+
