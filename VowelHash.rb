@@ -1,15 +1,18 @@
 class VowelHash
-  def calculate
-    result = {}
-    alphabet = ("a".."z").to_a
-    vowels = ["a", "e", "i", "o", "u", "y"]
+  
+  def initialize 
+    @result = {}
+    @alphabet = ("a".."z").to_a
+    @vowels = ["a", "e", "i", "o", "u", "y"]
+  end
 
-    alphabet.each do |char|
-      if vowels.include? char
-        result[char] = alphabet.index(char) + 1
+  def calculate
+    @alphabet.each do |char|
+      if @vowels.include? char
+        @result[char] = @alphabet.index(char) + 1
       end
     end
-    result
+    @result
   end
 end
 
