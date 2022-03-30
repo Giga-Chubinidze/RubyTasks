@@ -7,7 +7,7 @@ class HumanWeight
     puts "Enter Your Height"
     height = gets.chomp.to_i
     weight = height - VALUE
-  return height < VALUE ? "Your Weight Is Already Optimal": "Your Ideal Weight Is: #{weight}"
+    height < VALUE ? "Your Weight Is Already Optimal": "Your Ideal Weight Is: #{weight}"
   end
 end
 
