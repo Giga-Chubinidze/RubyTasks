@@ -1,10 +1,14 @@
 class FillArray
+  
+  def initialize
+    @result = []
+  end
+  
   def calculate
-    result = []
     (10..100).step(5) do |i|
-      result << i
+      @result << i
     end
-    result
+    @result
   end
 end
 
