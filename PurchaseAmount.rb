@@ -1,4 +1,5 @@
 class ShoppingCart
+  
   def initialize
     @result = {}
     @result_string = []
