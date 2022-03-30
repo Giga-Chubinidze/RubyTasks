@@ -1,5 +1,6 @@
 class HumanWeight
   VALUE = 110
+  
   def calculate
     puts "Enter Your Name"
     name = gets.chomp
