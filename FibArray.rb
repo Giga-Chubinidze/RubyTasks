@@ -1,16 +1,19 @@
 class FibArray
 
+  def initialize
+    @first = 0
+    @second = 1
+    @result = []
+  end
+  
   def calculate 
-    first = 0
-    second = 1
-    result = []
-    while first <= 100
-        result << first
-        after = first + second
-        first = second
-        second = after
+    while @first <= 100
+        @result << @first
+        @after = @first + @second
+        @first = @second
+        @second = @after
     end
-    result
+    @result
   end
 end
 
