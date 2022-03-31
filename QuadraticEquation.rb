@@ -1,38 +1,39 @@
 class Equation
-  attr_accessor :a, :b, :c, :d, :x1, :x2, :sqrt_val
+  attr_accessor :first_val, :second_val, :third_val, :discriminant, :first_root, :second_root, :sqrt_val
 
-  def initialize a, b, c
-    @a = a
-    @b = b
-    @c = c
-    @d = b**2 - 4*a*c
+  def initialize(first_val, second_val, third_val)
+    @first_val = first_val
+    @second_val = second_val
+    @third_val = third_val
+    @discriminant = second_val**2 - 4 * first_val * third_val
 
     #square roots for a and b respectively
-    @x1 = Math.sqrt a 
-    @x2 = Math.sqrt b
+    @first_root = Math.sqrt first_val 
+    @second_root = Math.sqrt second_val
 
-    @sqrt_val = Math.sqrt(d.abs)
+    @sqrt_val = Math.sqrt discriminant.abs
   end
 
   def calculate
-    if d > 0
-      return "Discriminant: #{d}, a's Root: #{(-b + sqrt_val) / (2 * a)}, b's Root: #{(-b - sqrt_val) / (2 * a)}"
-    elsif d == 0
-      return "Discriminant: #{d}, Root: #{-b / (2 * a)}"
-    elsif d < 0
-      return "Discriminant: #{d}, No Roots!"
+    if discriminant > 0
+      return "Discriminant: #{discriminant}, a's Root: #{(-second_val + sqrt_val) / (2 * first_val)}, 
+                                             b's Root: #{(-second_val - sqrt_val) / (2 * first_val)}"
+    elsif discriminant == 0
+      return "Discriminant: #{discriminant}, Root: #{-second_val / (2 * first_val)}"
+    else
+      return "Discriminant: #{discriminant}, No Roots!"
     end
   end
 end
 
 
 puts "Input first side"
-a = gets.chomp.to_f
+first_val = gets.chomp.to_f
 puts "Input second side"
-b = gets.chomp.to_f
+second_val = gets.chomp.to_f
 puts "Input third side"
-c = gets.chomp.to_f
+third_val = gets.chomp.to_f
 
-obj1 = Equation.new(a, b, c)
+obj1 = Equation.new(first_val, second_val, third_val)
 puts obj1.calculate
 
