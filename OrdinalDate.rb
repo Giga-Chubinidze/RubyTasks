@@ -17,8 +17,7 @@ class Ordinalize
   def day_adder
     # Add the days in the previous months
     @month -= 1
-    while @mont    alphabet = ("a".."z").to_a
-      vowels = ["a", "e", "i", "o", "u", "y"]h.positive?
+    while @mont    
       @day += @@days[@month - 1]
       @month -= 1
     end
