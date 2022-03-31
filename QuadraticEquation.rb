@@ -36,4 +36,3 @@ third_val = gets.chomp.to_f
 
 obj1 = Equation.new(first_val, second_val, third_val)
 puts obj1.calculate
-
