@@ -7,9 +7,17 @@ class Ordinalize
     @year = year
   end
 
+  def input_validity_check
+    unless (@day.positive? && @day < 32) && (@month.positive? && @month < 13)
+      puts 'Invalid input(s)'
+      exit!
+    end
+  end
+
   def calculate
     # Re declaring initialized variables in this method, so i dont override
     # its original values
+    input_validity_check
     @day += 1 if isLeap?
     "#{ordinalize(day_adder)} Day of the year"
   end
@@ -17,7 +25,7 @@ class Ordinalize
   def day_adder
     # Add the days in the previous months
     @month -= 1
-    while @mont    
+    while @month.positive?
       @day += @@days[@month - 1]
       @month -= 1
     end
