@@ -1,4 +1,6 @@
 class HumanWeightService
+  class GigasIOError < StandardError; end
+  
   VALUE = 110
 
   def initialize
@@ -11,6 +13,8 @@ class HumanWeightService
   def call 
     check_string(@height)
     calculate
+    rescue GigasIOError => e
+      warn e 
   end
   
   private
@@ -26,7 +30,8 @@ class HumanWeightService
   end
 
   def check_string(string)
-    abort('Wrong input') unless string.scan(/\D/).empty?
+    return if string.scan(/\D/).empty?
+    raise GigasIOError, "You Entered Invalid Height"
   end
 end
 
