@@ -11,11 +11,11 @@ class Triangle
   def call(method_name)
     input_check
     method(method_name).call
-    rescue GigasIOError => e
-      warn e
-  end 
+  rescue GigasIOError => e
+    warn e
+  end
 
-  private 
+  private
 
   def area
     VALUE * @base * @height
@@ -23,16 +23,13 @@ class Triangle
 
   def circumference
     # a test method to check the functionality
-    "i am circumference"
+    'i am circumference'
   end
 
   def input_check
-    if @base != 0 || @height != 0
-      raise GigasIOError, "Invalid Input"
-    end
+    raise GigasIOError, 'Invalid Input' if @base != 0 || @height != 0
   end
 end
 
 obj1 = Triangle.new(10, 0)
 puts obj1.call(:area)
-
