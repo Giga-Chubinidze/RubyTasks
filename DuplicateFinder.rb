@@ -29,8 +29,9 @@ end
 
 numbers = []
 loop do
+  puts "Enter a number | Enter 's' to stop the process!"
   input = gets.chomp
-  break if input == 's' # s for stopping the loop!
+  break if input == 's' 
 
   numbers << input
 end
