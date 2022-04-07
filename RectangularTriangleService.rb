@@ -19,12 +19,10 @@ class Triangle
   private
 
   def calculate
-    if pythagorean?
-      if isosceles?
-        'It is Pythagorean And Isosceles!'
-      else
-        'It is Pythagorean!'
-      end
+    if pythagorean? && isosceles?
+      'It is Pythagorean And Isosceles!'
+    elsif pythagorean?
+      'It is Pythagorean!'
     elsif all_sides_equal?
       'It is Isosceles And Equillateral'
     else
