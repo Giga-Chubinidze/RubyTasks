@@ -12,6 +12,8 @@ class RepDigit
     warn e
   end
 
+  private
+  
   def rep_digit?
     @number.to_s.split("").uniq.length == 1
   end
