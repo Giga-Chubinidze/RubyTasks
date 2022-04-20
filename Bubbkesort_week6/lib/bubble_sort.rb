@@ -17,13 +17,17 @@ class BubbleSort
 
   def sort
     (0...arr.length).each do
-      (1..(arr.length - 1)).each do |idx|
-        next unless arr[idx - 1] > arr[idx]
-
-        arr[idx - 1], arr[idx] = arr[idx], arr[idx - 1]
-      end
+      logic
     end
     arr
+  end
+
+  def logic 
+    (1..(arr.length - 1)).each do |idx|
+      next unless arr[idx - 1] > arr[idx]
+
+      arr[idx - 1], arr[idx] = arr[idx], arr[idx - 1]
+    end
   end
 
   def all_elem_integer?
@@ -36,6 +40,4 @@ class BubbleSort
     raise InputOutputError, 'Invalid Input' unless arr.is_a?(Array) && all_elem_integer?
   end
 end
-
-
 
