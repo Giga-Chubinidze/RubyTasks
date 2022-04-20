@@ -19,57 +19,53 @@ class TicTacToe
   end
 
   def console_line_interface
-    turn = 0
+    prompt_x = prompt_y = turn = 0
+
     loop do
-      if draw?
-        puts "\nDraw!"
-        break
-      end
+      break if draw?
 
-      puts "\nBoard:\n"
-      field.each do |i|
-        puts i.join(' ')
-      end
+      print_board
 
-      if turn.even?
-        puts "\nX's turn\n"
-      else
-        puts "\nO's turn"
-      end
+      puts turn.even? ? "\nX's turn\n" : "\nO's turn"
 
-      prompt_x =
-        prompt_y = 0
+      coordinate_array = input_coordinates(prompt_x, prompt_y)
 
-      puts 'Enter a unique x coordinates'
-      prompt_x = gets.chomp
+      prompt_x = coordinate_array[0].to_i
+      prompt_y = coordinate_array[1].to_i
 
-      puts 'Enter a unique y coordinates'
-      prompt_y = gets.chomp
+      field[prompt_x][prompt_y] = turn.even? ? 'X': 'O'
 
-      input_validation(prompt_x, prompt_y)
-
-      prompt_x = prompt_x.to_i
-      prompt_y = prompt_y.to_i
-
-      field[prompt_x][prompt_y] =
-        if turn.even?
-          'X'
-        else
-          'O'
-        end
-
-      puts "\nBoard:\n"
-      field.each do |i|
-        puts i.join(' ')
-      end
+      print_board
 
       turn += 1
-      if check_win(field) == true
-        puts turn.even? ? 'Winner: O' : 'Winner: X'
-        break
-      end
+      break if find_winner(turn)
     end
   end
+
+  def input_coordinates(prompt_x, prompt_y)
+    puts 'Enter a unique x coordinates'
+    prompt_x = gets.chomp
+
+    puts 'Enter a unique y coordinates'
+    prompt_y = gets.chomp
+
+    input_validation(prompt_x, prompt_y)
+    [prompt_x, prompt_y]
+  end
+
+  def print_board
+    puts "\nBoard:\n"
+    field.each do |i|
+      puts i.join(' ')
+    end
+  end
+
+  def find_winner(turn)
+    if check_win(field) == true
+      puts turn.even? ? 'Winner: O' : 'Winner: X'
+      true 
+    end
+  end  
 
   def check_win(game_field)
     game_field_vertical = game_field.transpose
@@ -83,7 +79,7 @@ class TicTacToe
     check_all_elems(game_field_vertical[2][0..2]) ||
 
     check_all_elems(get_left_diagonal(game_field)) ||
-    check_all_elems(get_right_diagonal(game_field))
+    check_all_elems(get_right_diagonal(game_field)) 
   end
 
   def get_left_diagonal(array)
@@ -120,6 +116,7 @@ class TicTacToe
 
   def draw?
     if (check_win(field) == false) && field.flatten.none? { |i| i == 254.chr }
+      puts "\nDraw!"
       true
     else
       false
