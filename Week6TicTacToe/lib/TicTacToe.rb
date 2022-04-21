@@ -4,12 +4,15 @@ class TicTacToe
 
   ARRAY_INDICES = %w[0 1 2].freeze
 
-  def initialize
-    @field = [
+  def initialize(field = nil)
+    @field = field 
+    @field ||= 
+    [
       [254.chr, 254.chr, 254.chr],
       [254.chr, 254.chr, 254.chr],
       [254.chr, 254.chr, 254.chr]
     ]
+    
   end
 
   def play
@@ -20,11 +23,10 @@ class TicTacToe
 
   def console_line_interface
     prompt_x = prompt_y = turn = 0
+    print_board
 
     loop do
-      break if draw?
-
-      print_board
+      break if find_winner || draw?
 
       puts turn.even? ? "\nX's turn\n" : "\nO's turn"
 
@@ -38,7 +40,6 @@ class TicTacToe
       print_board
 
       turn += 1
-      break if find_winner(turn)
     end
   end
 
@@ -60,9 +61,9 @@ class TicTacToe
     end
   end
 
-  def find_winner(turn)
-    if check_win(field) == true
-      puts turn.even? ? 'Winner: O' : 'Winner: X'
+  def find_winner
+    if check_win(field)
+      puts 'Game Over! We Have a Winner!'
       true 
     end
   end  
@@ -124,9 +125,7 @@ class TicTacToe
   end
 end
 
-game = TicTacToe.new
+
+
+game = TicTacToe.new()
 game.play
-
-
-
-
