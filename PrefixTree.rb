@@ -99,6 +99,7 @@ trie = PrefixTree.new
 trie.add('apple')
 trie.add('apple')
 trie.add('giga')
+trie.add("trip")
 puts trie.include?('apps')
 puts trie.find('apple')
 puts trie.find('giga')
