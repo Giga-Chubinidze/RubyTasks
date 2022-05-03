@@ -104,3 +104,4 @@ puts trie.find('apple')
 puts trie.find('giga')
 trie.delete('giga')
 puts trie.find('giga')
+
