@@ -1,4 +1,4 @@
-require_relative "PrefixTreeNode"
+require_relative "prefix_tree_node"
 
 class PrefixTree
   attr_accessor :root, :container
@@ -48,9 +48,8 @@ class PrefixTree
   end
 
   def list(prefix = nil)
-    res = []
-    return root.data if prefix.nil?
-    return verified_words(container, prefix)
+    return container if prefix.nil?
+    verified_words(container, prefix)
   end
 
   def verified_words(container, prefix)
@@ -109,4 +108,4 @@ trie.add("dog")
 trie.add("doggoro")
 trie.add("dolphin")
 
-puts trie.list("do")
+puts trie.list
