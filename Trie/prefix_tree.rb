@@ -61,6 +61,7 @@ class PrefixTree
   end
 
   def delete(word)
+    container.delete(word)
     delete_recursively(word, 0, root)
   end
 
@@ -101,11 +102,10 @@ end
 
 trie = PrefixTree.new
 
-trie.add("qwerty")
-trie.add("qwcb")
 trie.add("cat")
 trie.add("dog")
-trie.add("doggoro")
-trie.add("dolphin")
+trie.list
+trie.delete("cat")
+trie.list
 
 puts trie.list
