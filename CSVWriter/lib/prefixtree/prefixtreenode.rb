@@ -1,3 +1,4 @@
+$LOAD_PATH << "../lib"
 class Node
   attr_accessor :data, :is_word
 

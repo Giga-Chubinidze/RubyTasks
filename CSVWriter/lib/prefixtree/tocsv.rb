@@ -1,10 +1,11 @@
+$LOAD_PATH << "../lib"
 require 'csv'
 
 class FileWriter
   attr_accessor :path
 
   def initialize
-    @path = 'CSVWriter/data.csv'
+    @path = 'lib/data.csv'
   end
 
   def save_to_csv(word_list)

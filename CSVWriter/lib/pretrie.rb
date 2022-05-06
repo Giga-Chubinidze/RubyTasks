@@ -1,5 +1,8 @@
-require_relative "prefix_tree_node"
-require_relative "to_csv"
+$LOAD_PATH << "../lib"
+require "prefixtree/prefixtreenode"
+require "prefixtree/tocsv"
+
+
 
 class PrefixTree
   attr_accessor :root, :container
@@ -17,17 +20,6 @@ class PrefixTree
       current = adder_logic(current, char)
     end
     current.is_word = true
-    current
-  end
-
-  def adder_logic(current, char)
-    if current.data.include?(char)
-      current = current.data[char]
-    else
-      new_node = Node.new
-      current.data[char] = new_node
-      current = new_node
-    end
     current
   end
 
@@ -54,14 +46,6 @@ class PrefixTree
     verified_words(container, prefix)
   end
 
-  def verified_words(container, prefix)
-    res = []
-    container.each do |word|
-      res << word if word.start_with?(prefix)
-    end
-    res.length == 0 ? false : res
-  end
-
   def delete(word)
     container.delete(word)
     delete_recursively(word, 0, root)
@@ -76,6 +60,25 @@ class PrefixTree
   end
 
   private
+
+  def adder_logic(current, char)
+    if current.data.include?(char)
+      current = current.data[char]
+    else
+      new_node = Node.new
+      current.data[char] = new_node
+      current = new_node
+    end
+    current
+  end
+
+  def verified_words(container, prefix)
+    res = []
+    container.each do |word|
+      res << word if word.start_with?(prefix)
+    end
+    res.length == 0 ? false : res
+  end
 
   def word_exists?(word, index, current)
     if index == word.length
@@ -110,13 +113,7 @@ class PrefixTree
 end
 
 
-trie = PrefixTree.new
 
-trie.add("cat")
-trie.add("dog")
-trie.add("parrot")
-trie.add("pizza")
-trie.save_all_to_csv
-puts trie.read_all_from_csv
+
 
 
